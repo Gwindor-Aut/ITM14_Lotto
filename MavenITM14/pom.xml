@@ -4,7 +4,7 @@
 
 	<groupId>at.fhj.itm</groupId>
 	<artifactId>MavenITM14</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>2.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>MavenITM14</name>
