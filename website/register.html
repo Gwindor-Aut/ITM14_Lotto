@@ -31,6 +31,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+				<!-- To do html inports in html5 -->
+				<script src="http://www.w3schools.com/lib/w3data.js"></script>
     </head>
 
     <body>
@@ -49,28 +51,14 @@
     				<a class="navbar-brand" href="./index.html">Online Lotto</a>
     			</div>
     			<!-- Collect the nav links, forms, and other content for toggling -->
-    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    				<ul class="nav navbar-nav">
-    					<li>
-    						<a href="#">Manuel</a>
-    					</li>
-    					<li>
-    						<a href="./index.html">Home</a>
-    					</li>
-    					<li>
-    						<a href="./konto.html">Konto</a>
-    					</li>
-    					<li>
-    						<a href="./spielen.html">Spielen</a>
-    					</li>
-    					<li>
-    						<a href="./tipps.html">Tipps</a>
-    					</li>
-    					<li>
-    						<a href="#">Abmelden</a>
-    					</li>
-    				</ul>
-    			</div>
+					<!-- something like is logged in, then
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" w3-include-html="navbar.html">
+
+					</div> -->
+					<!-- else -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" w3-include-html="navbar_logout.html">
+
+					</div>
     			<!-- /.navbar-collapse -->
     		</div>
     		<!-- /.container -->
@@ -91,7 +79,7 @@
     						</br>
     						<div class="wrapper">
     							<span class="group-btn">
-    								<a href="#" class="btn btn-primary btn-md">Register </a>
+    								<a href="./home.html" class="btn btn-primary btn-md">Register </a>
     							</span>
     						</div>
     					</div>
@@ -110,6 +98,11 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+
+    <!-- For including Nav-Bar -->
+    <script>
+      w3IncludeHTML();
+    </script>
 
 </body>
 
