@@ -17,7 +17,18 @@
     border-radius: 10px;
 }
 
-.wrapper {
-    text-align: center;
+#page-content-wrapper {
+	margin-top: 30px;
+	text-align: center;
 }
+
+#sidebar-wrapper {
+	margin-top: 20px;
+}
+
+#menu-toggle {
+	margin-top: 8px;
+	margin-right: 8px;
+}
+
 /*---------------------------------------------------*/
