@@ -20,4 +20,14 @@
 	margin-right: 8px;
 }
 
+@media(max-width:768px) {
+	.navbar-header {
+		float: left;
+	}
+	.navbar-right {
+		float: right;
+		margin-top: 0px;
+	}
+}
+
 /*---------------------------------------------------*/
