@@ -12,6 +12,6 @@ public class SiteService {
 	@Path("/name/{name}")
 	public Response getSiteWithName(@PathParam("name") String name){
 		System.out.println(getClass().getClassLoader().getResourceAsStream(name));
-		return Response.status(200).entity(name).build();
+		return Response.status(200).entity(name + "test").build();
 	}
 }
