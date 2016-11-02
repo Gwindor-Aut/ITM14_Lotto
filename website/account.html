@@ -13,124 +13,110 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="./js/script.js" type="text/javascript"></script>
-
-    <!-- Custom CSS -->
-    <style>
-        body {
-            padding-top: 70px;
-            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-        }
-    </style>
+	
+	<!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <![endif]-->
+</head>
 
-        <!-- To do html inports in html5 -->
-        <script src="http://www.w3schools.com/lib/w3data.js"></script>
-    </head>
+<body>
+	<div id="wrapper" class="toggled">
 
-    <body>
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="./home.html">Online Lotto</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <!-- something like is logged in, then -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" w3-include-html="navbar.html">
-                  <ul class="nav navbar-nav">
-                      <li>
-                          <a href="#">$USERNAME</a>
-                      </li>
-                      <li>
-                          <a href="./home.html">Home</a>
-                      </li>
-                      <li>
-                          <a href="./account.html">Konto</a>
-                      </li>
-                      <li>
-                          <a href="./playing.html">Lotto spielen</a>
-                      </li>
-                      <li>
-                          <a href="./tips.html">Tipps</a>
-                      </li>
-                      <li>
-                          <a href="./index.html">Ausloggen</a>
-                      </li>
-                  </ul>
-
-                </div>
-                <!-- else
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" w3-include-html="navbar_logout.html">
-
-                </div> -->
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
+					<a class="navbar-brand" href="./home.html">Online Lotto</a>
+				</div>
+				<div class="nav navbar-right">
+					<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+						<span class="glyphicon glyphicon-align-justify"></span>
+					</a>
+				</div>
+			</div>
+		</nav>
+	
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+				<li>
+					<a href="#">$USERNAME</a>
+				</li>
+				<li>
+					<a href="./home.html">Home</a>
+				</li>
+				<li>
+					<a href="./account.html">Konto</a>
+				</li>
+				<li>
+					<a href="./playing.html">Lotto spielen</a>
+				</li>
+				<li>
+					<a href="./tips.html">Tipps</a>
+				</li>
+				<li>
+					<a href="./index.html">Ausloggen</a>
+				</li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div class="container">
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Konto</h1>
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
+						<div class="col-md-offset-5 col-md-3">
+							<div class="form-login">
+								<h4>Kontostand: Todo</h4>
+								<p>Um Geld auf Ihr Lottokonto zu buchen oder von Ihrem Lottokonto abzubuchen, geben Sie den gewünschten Betrag ein und klicken Sie den entsprechenden Button.</p>
+								<input type="number" id="value" class="form-control input-sm chat-input" placeholder="Betrag in €" />
+							</br>
+							<div class="wrapper">
+								<span class="group-btn">
+									<a href="#" class="btn btn-primary btn-md" onclick="recharge(value)">Aufbuchen<i class="fa fa-sign-in"></i></a><!-- Aufbuchen -->
+								</span>
+								<span class="group-btn">
+									<a href="#" class="btn btn-primary btn-md" onclick="debit(value)">Abheben<i class="fa fa-sign-in"></i></a><!-- Abbuchen -->
+								</span>
+							</div>
+						</div>
 
-                    <h1>Konto</h1>
-
-
-
-                    <div class="col-md-offset-5 col-md-3">
-                        <div class="form-login">
-                            <h4>Kontostand: Todo</h4>
-                            <p>Um Geld auf Ihr Lottokonto zu buchen oder von Ihrem Lottokonto abzubuchen, geben Sie den gewünschten Betrag ein und klicken Sie den entsprechenden Button.</p>
-                            <input type="number" id="value" class="form-control input-sm chat-input" placeholder="Betrag in €" />
-                        </br>
-                        <div class="wrapper">
-                            <span class="group-btn">
-                                <a href="#" class="btn btn-primary btn-md" onclick="recharge(value)">Aufbuchen<i class="fa fa-sign-in"></i></a><!-- Aufbuchen -->
-                            </span>
-                            <span class="group-btn">
-                                <a href="#" class="btn btn-primary btn-md" onclick="debit(value)">Abheben<i class="fa fa-sign-in"></i></a><!-- Abbuchen -->
-                            </span>
-                        </div>
+						<h2>Finanzverlauf</h2>
+						<p>ToDo</p>
                     </div>
-
-
-
-                    <h2>Finanzverlauf</h2>
-                    <p>ToDo</p>
                 </div>
-                <!-- /.row -->
-
             </div>
-            <!-- /.container -->
+        </div>
+        <!-- /#page-content-wrapper -->
 
-            <!-- jQuery Version 1.11.1 -->
-            <script src="js/jquery.js"></script>
+    </div>
+    <!-- /#wrapper -->
 
-            <!-- Bootstrap Core JavaScript -->
-            <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-                <!-- For including Nav-Bar -->
-                <script>
-                  w3IncludeHTML();
-                </script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-        </body>
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 
-        </html>
+</body>
+</html>
