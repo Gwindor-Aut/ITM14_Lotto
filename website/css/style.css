@@ -15,9 +15,14 @@
 	margin-top: 20px;
 }
 
-#menu-toggle {
+#menu-toggle,
+#messages {
 	margin-top: 8px;
 	margin-right: 8px;
+}
+
+.lottoNumber {
+	width: 60px !important;
 }
 
 @media(max-width:768px) {
