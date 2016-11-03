@@ -13,7 +13,7 @@ public class UserDAO extends GenericSqlDAO<User, Integer>{
 	public Integer create(User newInstance) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("INSERT INTO USERS (username, password) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+			stmt = connection.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, newInstance.username);
 			stmt.setString(2, newInstance.password);
 			
@@ -38,7 +38,7 @@ public class UserDAO extends GenericSqlDAO<User, Integer>{
 		u.password = "undefined";
 		
 		try {
-			stmt = connection.prepareStatement("SELECT * FROM USERS WHERE ID = ?");
+			stmt = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			rs.first();
@@ -60,7 +60,7 @@ public class UserDAO extends GenericSqlDAO<User, Integer>{
 	public void update(User transientObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("UPDATE USERS SET USERNAME = ?, PASSWORD = ? WHERE ID = ?");
+			stmt = connection.prepareStatement("UPDATE users SET username = ?, password = ? WHERE id = ?");
 			stmt.setString(1, transientObject.username);
 			stmt.setString(2, transientObject.password);
 			stmt.setInt(3, transientObject.id);
@@ -81,7 +81,7 @@ public class UserDAO extends GenericSqlDAO<User, Integer>{
 	public void delete(User persistentObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("DELETE FROM USERS WHERE ID = ?");
+			stmt = connection.prepareStatement("DELETE FROM users WHERE id = ?");
 			stmt.setInt(1, persistentObject.id);
 			
 			int affectedRows = stmt.executeUpdate();

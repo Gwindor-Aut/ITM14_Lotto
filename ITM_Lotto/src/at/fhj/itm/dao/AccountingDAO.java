@@ -13,7 +13,7 @@ public class AccountingDAO extends GenericSqlDAO<Accounting, Integer>{
 	public Integer create(Accounting newInstance) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("INSERT INTO ACCOUNTINGS (balance, diffBalance, description, date, fk_userid) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			stmt = connection.prepareStatement("INSERT INTO accountings (balance, diffBalance, description, date, fk_userid) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			stmt.setDouble(1, newInstance.balance);
 			stmt.setDouble(2, newInstance.diffBalance);
 			stmt.setString(3, newInstance.description);
@@ -44,7 +44,7 @@ public class AccountingDAO extends GenericSqlDAO<Accounting, Integer>{
 		a.fk_userId = -1;
 		
 		try {
-			stmt = connection.prepareStatement("SELECT * FROM ACCOUNTINGS WHERE ID = ?");
+			stmt = connection.prepareStatement("SELECT * FROM accountings WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			rs.first();
@@ -69,7 +69,7 @@ public class AccountingDAO extends GenericSqlDAO<Accounting, Integer>{
 	public void update(Accounting transientObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("UPDATE ACCOUNTINGS SET balance = ?, diffBalance = ?, description = ?, date = ?, fk_userid = ? WHERE ID = ?");
+			stmt = connection.prepareStatement("UPDATE accountings SET balance = ?, diffBalance = ?, description = ?, date = ?, fk_userid = ? WHERE id = ?");
 			stmt.setDouble(1, transientObject.balance);
 			stmt.setDouble(2, transientObject.diffBalance);
 			stmt.setString(3, transientObject.description);
@@ -92,7 +92,7 @@ public class AccountingDAO extends GenericSqlDAO<Accounting, Integer>{
 	public void delete(Accounting persistentObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("DELETE FROM ACCOUNTINGS WHERE ID = ?");
+			stmt = connection.prepareStatement("DELETE FROM accountings WHERE id = ?");
 			stmt.setInt(1, persistentObject.id);
 			
 			int affectedRows = stmt.executeUpdate();

@@ -13,7 +13,7 @@ public class TippDAO extends GenericSqlDAO<Tipp, Integer>{
 	public Integer create(Tipp newInstance) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("INSERT INTO TIPPS (numbers, isQuickTipp, date, fk_userid, fk_drawid) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			stmt = connection.prepareStatement("INSERT INTO tipps (numbers, isQuickTipp, date, fk_userid, fk_drawid) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, newInstance.numbers);
 			stmt.setBoolean(2, newInstance.isQuicktipp);
 			stmt.setDate(3, newInstance.date);
@@ -39,7 +39,7 @@ public class TippDAO extends GenericSqlDAO<Tipp, Integer>{
 		t.id = -1;
 		
 		try {
-			stmt = connection.prepareStatement("SELECT * FROM TIPPS WHERE ID = ?");
+			stmt = connection.prepareStatement("SELECT * FROM tipps WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			rs.first();
@@ -64,7 +64,7 @@ public class TippDAO extends GenericSqlDAO<Tipp, Integer>{
 	public void update(Tipp transientObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("UPDATE TIPPS SET numbers = ?, isQuickTipp = ?, date = ?, fk_userid = ?, fk_drawid = ? WHERE ID = ?");
+			stmt = connection.prepareStatement("UPDATE tipps SET numbers = ?, isQuickTipp = ?, date = ?, fk_userid = ?, fk_drawid = ? WHERE id = ?");
 			stmt.setString(1, transientObject.numbers);
 			stmt.setBoolean(2, transientObject.isQuicktipp);
 			stmt.setDate(3, transientObject.date);
@@ -87,7 +87,7 @@ public class TippDAO extends GenericSqlDAO<Tipp, Integer>{
 	public void delete(Tipp persistentObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("DELETE FROM TIPPS WHERE ID = ?");
+			stmt = connection.prepareStatement("DELETE FROM tipps WHERE id = ?");
 			stmt.setInt(1, persistentObject.id);
 			
 			int affectedRows = stmt.executeUpdate();
