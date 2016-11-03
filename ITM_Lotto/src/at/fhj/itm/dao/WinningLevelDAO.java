@@ -13,7 +13,7 @@ public class WinningLevelDAO extends GenericSqlDAO<WinningLevel, Integer>{
 	public Integer create(WinningLevel newInstance) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("INSERT INTO WINNINGLEVELS (date, six, five, four, three) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			stmt = connection.prepareStatement("INSERT INTO winninglevels (date, six, five, four, three) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			stmt.setDate(1, newInstance.date);
 			stmt.setInt(2, newInstance.six);
 			stmt.setInt(3, newInstance.five);
@@ -39,7 +39,7 @@ public class WinningLevelDAO extends GenericSqlDAO<WinningLevel, Integer>{
 		wl.id = -1;
 		
 		try {
-			stmt = connection.prepareStatement("SELECT * FROM WINNINGLEVELS WHERE ID = ?");
+			stmt = connection.prepareStatement("SELECT * FROM winninglevels WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			rs.first();
@@ -64,7 +64,7 @@ public class WinningLevelDAO extends GenericSqlDAO<WinningLevel, Integer>{
 	public void update(WinningLevel transientObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("UPDATE WINNINGLEVELS SET date = ?, six = ?, five = ?, four = ?, three = ? WHERE ID = ?");
+			stmt = connection.prepareStatement("UPDATE winninglevels SET date = ?, six = ?, five = ?, four = ?, three = ? WHERE id = ?");
 			stmt.setDate(1, transientObject.date);
 			stmt.setInt(2, transientObject.six);
 			stmt.setInt(3, transientObject.five);
@@ -87,7 +87,7 @@ public class WinningLevelDAO extends GenericSqlDAO<WinningLevel, Integer>{
 	public void delete(WinningLevel persistentObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("DELETE FROM WINNINGLEVELS WHERE ID = ?");
+			stmt = connection.prepareStatement("DELETE FROM winninglevels WHERE id = ?");
 			stmt.setInt(1, persistentObject.id);
 			
 			int affectedRows = stmt.executeUpdate();

@@ -13,7 +13,7 @@ public class MessageDAO extends GenericSqlDAO<Message, Integer>{
 	public Integer create(Message newInstance) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("INSERT INTO MESSAGES (text, isRead, date, fk_userid) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			stmt = connection.prepareStatement("INSERT INTO messages (text, isRead, date, fk_userid) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, newInstance.text);
 			stmt.setBoolean(2, newInstance.isRead);
 			stmt.setDate(3, newInstance.date);
@@ -42,7 +42,7 @@ public class MessageDAO extends GenericSqlDAO<Message, Integer>{
 		m.fk_userId = -1;
 		
 		try {
-			stmt = connection.prepareStatement("SELECT * FROM MESSAGES WHERE ID = ?");
+			stmt = connection.prepareStatement("SELECT * FROM messages WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			rs.first();
@@ -66,7 +66,7 @@ public class MessageDAO extends GenericSqlDAO<Message, Integer>{
 	public void update(Message transientObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("UPDATE MESSAGES SET text = ?, isRead = ?, date = ?, fk_userid = ? WHERE ID = ?");
+			stmt = connection.prepareStatement("UPDATE messages SET text = ?, isRead = ?, date = ?, fk_userid = ? WHERE id = ?");
 			stmt.setString(1, transientObject.text);
 			stmt.setBoolean(2, transientObject.isRead);
 			stmt.setDate(3, transientObject.date);
@@ -88,7 +88,7 @@ public class MessageDAO extends GenericSqlDAO<Message, Integer>{
 	public void delete(Message persistentObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("DELETE FROM MESSAGES WHERE ID = ?");
+			stmt = connection.prepareStatement("DELETE FROM messages WHERE id = ?");
 			stmt.setInt(1, persistentObject.id);
 			
 			int affectedRows = stmt.executeUpdate();

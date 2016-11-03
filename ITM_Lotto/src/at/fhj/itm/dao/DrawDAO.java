@@ -13,7 +13,7 @@ public class DrawDAO extends GenericSqlDAO<Draw, Integer>{
 	public Integer create(Draw newInstance) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("INSERT INTO DRAWS (pot, numbers, date, jackpotLevel, priceOfTipp, taxrate, ownerrate, fk_winningLevelid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			stmt = connection.prepareStatement("INSERT INTO draws (pot, numbers, date, jackpotLevel, priceOfTipp, taxrate, ownerrate, fk_winningLevelid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, newInstance.pot);
 			stmt.setString(2, newInstance.numbers);
 			stmt.setDate(3, newInstance.date);
@@ -50,7 +50,7 @@ public class DrawDAO extends GenericSqlDAO<Draw, Integer>{
 		d.fk_winningLevelId = -1;
 		
 		try {
-			stmt = connection.prepareStatement("SELECT * FROM DRAWS WHERE ID = ?");
+			stmt = connection.prepareStatement("SELECT * FROM draws WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			rs.first();
@@ -78,7 +78,7 @@ public class DrawDAO extends GenericSqlDAO<Draw, Integer>{
 	public void update(Draw transientObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("UPDATE DRAWS SET pot = ?, numbers = ?, date = ?, jackpotLevel = ?, priceOfTipp = ?, taxate = ?, ownerrate = ?, fk_winningLevelid = ? WHERE ID = ?");
+			stmt = connection.prepareStatement("UPDATE draws SET pot = ?, numbers = ?, date = ?, jackpotLevel = ?, priceOfTipp = ?, taxate = ?, ownerrate = ?, fk_winningLevelid = ? WHERE id = ?");
 			stmt.setInt(1, transientObject.pot);
 			stmt.setString(2, transientObject.numbers);
 			stmt.setDate(3, transientObject.date);
@@ -105,7 +105,7 @@ public class DrawDAO extends GenericSqlDAO<Draw, Integer>{
 	public void delete(Draw persistentObject) {
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("DELETE FROM DRAWS WHERE ID = ?");
+			stmt = connection.prepareStatement("DELETE FROM draws WHERE id = ?");
 			stmt.setInt(1, persistentObject.id);
 			
 			int affectedRows = stmt.executeUpdate();
