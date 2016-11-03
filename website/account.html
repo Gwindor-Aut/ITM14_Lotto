@@ -84,15 +84,18 @@
 						<div class="col-md-offset-4 col-md-4">
 							<div class="form-login">
 								<h4>Kontostand: $KONTOSTAND</h4>
-								<p>Um Geld auf Ihr Lottokonto zu buchen oder von Ihrem Lottokonto abzubuchen, geben Sie den gewünschten Betrag ein und klicken Sie den entsprechenden Button.</p>
-								<input type="number" id="value" class="form-control input-sm chat-input" placeholder="Betrag in €" />
+								<p>Um Geld auf Ihr Lottokonto zu buchen oder abzuheben, geben Sie den gewünschten Betrag ein und klicken Sie den entsprechenden Button.</p>
+								<div class="input-group">
+									<input type="number" id="value" class="form-control" min="1" placeholder="Betrag">
+									<div class="input-group-addon">€</div>
+								</div>
 							</br>
 							<div class="wrapper">
 								<span class="group-btn">
-									<a href="#" class="btn btn-success btn-md" onclick="recharge(value)">Aufbuchen<i class="fa fa-sign-in"></i></a><!-- Aufbuchen -->
+									<a href="#" class="btn btn-success" onclick="recharge(value)">Aufbuchen</a>
 								</span>
 								<span class="group-btn">
-									<a href="#" class="btn btn-danger btn-md" onclick="debit(value)">Abheben<i class="fa fa-sign-in"></i></a><!-- Abbuchen -->
+									<a href="#" class="btn btn-danger" onclick="debit(value)">Abheben</a>
 								</span>
 							</div>
 						</div>
