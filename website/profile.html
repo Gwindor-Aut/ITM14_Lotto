@@ -37,7 +37,7 @@
                 <div class="navbar-header">
 					<a class="navbar-brand" href="./home.html">Online Lotto</a>
 				</div>
-				<div class="nav navbar-nav navbar-right">
+				<div class="nav navbar-right">
 					<a href="./profile.html" class="btn btn-success" id="messages">
 						<span class="glyphicon glyphicon-bell"></span>
 						<span class="badge">0</span>
@@ -79,14 +79,17 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Online Lotto</h1>
-						<p>Ihr derzeitiger Kontostand: <i>$KONTOSTAND</i></p>
-						<!-- If jackpot, then -->
-						<p class="lead">Jackpot: <a href="./playing.html"><b>$JACKPOT €</b></a> </p>
-						<!-- end if -->
-						<a href="./playing.html" class="btn btn-success btn-lg">!!! Spielen !!!</a>
-						<br><br>
-						<p>Nächste Ziehung: <i>$DATUM_UHRZEIT</i><br>
+                        <h1>Profil</h1>
+						
+						$Username<br>
+						$Email
+
+						<h2>Benachrichtigungen</h2>
+						<div class="row">
+							<div class="alert alert-success col-md-6 col-md-offset-3" role="alert">
+								<b>Erfolg!</b> Du hast gewonnen.
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
