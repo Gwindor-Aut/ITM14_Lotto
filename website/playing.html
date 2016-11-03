@@ -13,6 +13,9 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Bootstrap Select CSS -->
+	<link href="css/bootstrap-select.min.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -38,6 +41,10 @@
 					<a class="navbar-brand" href="./home.html">Online Lotto</a>
 				</div>
 				<div class="nav navbar-right">
+					<a href="#messages" class="btn btn-success" id="messages">
+						<span class="glyphicon glyphicon-bell"></span>
+						<span class="badge">0</span>
+					</a>
 					<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
 						<span class="glyphicon glyphicon-align-justify"></span>
 					</a>
@@ -76,11 +83,53 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Lotto spielen</h1>
-						<p class="lead">Complete with pre-defined file paths that you won't have to change!!</p>
-						<ul class="list-unstyled">
-							<li>Bootstrap v3.3.7</li>
-							<li>jQuery v1.11.1</li>
-						</ul>
+						<div class="row">
+							<div class="well col-md-4 col-md-offset-1">
+								<h3>Manuell</h3>
+								<form class="form-inline">
+									Zahlen nur von 1 bis 46 sind erlaubt.<br>
+									<br>
+									<div class="form-group">
+										<div class="input-group">
+											<input type="number" class="form-control lottoNumber" id="numberOne">
+											<input type="number" class="form-control lottoNumber" id="numberTwo">
+											<input type="number" class="form-control lottoNumber" id="numberThree">
+											<input type="number" class="form-control lottoNumber" id="numberFour">
+											<input type="number" class="form-control lottoNumber" id="numberFife">
+										</div>
+										<button id="plus" class="btn btn-primary">+</button>
+									</div>
+									<br>
+									<br>
+									Preis: <b> 0,00 <span class="glyphicon glyphicon-euro" aria-hidden="true"></span></b>
+									<br><br>
+									<button type="submit" class="btn btn-success">Erwerben</button>
+								</form>
+							</div>
+							<div class="well col-md-4 col-md-offset-1">
+								<h3>Auto</h3>
+								<form>
+									<select class="selectpicker show-menu-arrow" data-live-search="true" data-width="fit">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+										<option>11</option>
+										<option>12</option>
+									</select> Quicktipp/s
+									<br><br>
+									Preis: <b> 0,00 <span class="glyphicon glyphicon-euro" aria-hidden="true"></span></b>
+									<br><br>
+									<button type="submit" class="btn btn-success">Erwerben</button>
+								</form>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -95,13 +144,18 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap Select JavaScript -->
+	<script src="js/bootstrap-select.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	
+		$('.selectpicker').selectpicker();
     </script>
 
 </body>
