@@ -16,7 +16,7 @@ public class UserService {
 	@GET
 	@Path("/test")
 	public String Test(){
-		return "<h1>TEST - /user2</h1>";
+		return "<h1>TEST - /user WTF</h1>";
 	}
 	
 	@GET

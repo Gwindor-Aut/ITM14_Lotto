@@ -37,10 +37,6 @@
   		<groupId>com.sun.jersey</groupId>
   		<artifactId>jersey-server</artifactId>
   	</dependency>
-  	<dependency>
-  		<groupId>org.mariadb.jdbc</groupId>
-  		<artifactId>mariadb-java-client</artifactId>
-  	</dependency>
   </dependencies>
   <dependencyManagement>
   	<dependencies>
@@ -53,11 +49,6 @@
   			<groupId>com.sun.jersey</groupId>
   			<artifactId>jersey-server</artifactId>
   			<version>1.19.2</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.mariadb.jdbc</groupId>
-  			<artifactId>mariadb-java-client</artifactId>
-  			<version>1.5.4</version>
   		</dependency>
   	</dependencies>
   </dependencyManagement>
