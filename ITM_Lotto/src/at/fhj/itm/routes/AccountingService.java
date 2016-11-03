@@ -5,8 +5,13 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+import at.fhj.itm.dao.AccountingDAO;
+import at.fhj.itm.model.Accounting;
+
 @Path("/accounting")
 public class AccountingService {
+	
+	AccountingDAO adao = new AccountingDAO();
 	
 	@GET
 	@Path("/test")
@@ -17,7 +22,8 @@ public class AccountingService {
 	@GET
 	@Path("/id/{id}")
 	public String getAccoutingById(@PathParam("id") Integer id){
-		return "Test::getAccountById: " + id;
+		Accounting a = adao.read(id);
+		return a.toString();
 	}
 	
 	@POST

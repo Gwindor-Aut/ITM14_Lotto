@@ -2,12 +2,13 @@ package at.fhj.itm.routes;
 
 import javax.ws.rs.*;
 
-import at.fhj.itm.msg.FakeMsg;
+import at.fhj.itm.dao.MessageDAO;
+import at.fhj.itm.model.Message;
 
 @Path("/msg")
 public class MsgService {
 	
-	FakeMsg fm = new FakeMsg();
+	MessageDAO mdao = new MessageDAO();
 	
 	@GET
 	@Path("/test")
@@ -18,7 +19,8 @@ public class MsgService {
 	@GET
 	@Path("/id/{id}")
 	public String getMsgById(@PathParam("id") Integer id){
-		return "Test::getMsgById " + id;
+		Message m = mdao.read(id);
+		return m.toString();
 	}
 	
 	@POST

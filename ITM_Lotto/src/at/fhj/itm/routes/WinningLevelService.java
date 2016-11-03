@@ -5,8 +5,13 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+import at.fhj.itm.dao.WinningLevelDAO;
+import at.fhj.itm.model.WinningLevel;
+
 @Path("/winlev")
 public class WinningLevelService {
+	
+	WinningLevelDAO wdao = new WinningLevelDAO();
 	
 	@GET
 	@Path("/test")
@@ -17,7 +22,8 @@ public class WinningLevelService {
 	@GET
 	@Path("/id/{id}")
 	public String getWinningLevelById(@PathParam("id") Integer id){
-		return "Test::getWinningLevelById " + id;
+		WinningLevel wl = wdao.read(id);
+		return wl.toString();
 	}
 	
 	@POST

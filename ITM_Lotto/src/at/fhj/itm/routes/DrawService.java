@@ -5,8 +5,13 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+import at.fhj.itm.dao.DrawDAO;
+import at.fhj.itm.model.Draw;
+
 @Path("/draw")
 public class DrawService {
+	
+	DrawDAO ddao = new DrawDAO();
 	
 	@GET
 	@Path("/test")
@@ -17,7 +22,8 @@ public class DrawService {
 	@GET
 	@Path("/id/{id}")
 	public String getDrawById(@PathParam("id") Integer id){
-		return "Test::getDrawById " + id;
+		Draw d = ddao.read(id);
+		return d.toString();
 	}
 	
 	@POST

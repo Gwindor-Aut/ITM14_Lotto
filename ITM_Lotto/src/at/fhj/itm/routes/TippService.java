@@ -5,8 +5,13 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+import at.fhj.itm.dao.TippDAO;
+import at.fhj.itm.model.Tipp;
+
 @Path("/tipps")
 public class TippService {
+	
+	TippDAO tdao = new TippDAO();
 	
 	@GET
 	@Path("/test")
@@ -17,7 +22,8 @@ public class TippService {
 	@GET
 	@Path("/id/{id}")
 	public String getTippById(@PathParam("id") Integer id){
-		return "Test::TippById: " + id;
+		Tipp t = tdao.read(id);
+		return t.toString();
 	}
 	
 	@POST
