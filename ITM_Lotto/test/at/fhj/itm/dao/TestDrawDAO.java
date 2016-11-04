@@ -46,7 +46,7 @@ public class TestDrawDAO {
 		
 		drawDAO.create(draw);
          
-        Draw drawout = drawDAO.read(10000);
+        Draw drawout = drawDAO.read(1);
         assertEquals(drawout.hashCode(), draw.hashCode()); 
 	}
 	
@@ -55,7 +55,7 @@ public class TestDrawDAO {
 		
 		drawDAO.create(draw);
          
-		Draw drawout = drawDAO.read(10000);
+		Draw drawout = drawDAO.read(1);
         assertEquals(drawout.hashCode(), draw.hashCode()); 
 	}
 	
@@ -66,7 +66,7 @@ public class TestDrawDAO {
 		Draw draw2 = draw;
 		draw2.jackpotLevel += 1; 
 		drawDAO.update(draw2);
-        Draw accountingout = drawDAO.read(10000);
+        Draw accountingout = drawDAO.read(1);
         assertEquals(accountingout.hashCode(), draw2.hashCode()); 
         assertNotEquals(accountingout, draw);
 	}
@@ -81,7 +81,7 @@ public class TestDrawDAO {
 		drawDAO.delete(drawdel);
         
 		/* should throw an exception */
-        drawDAO.read(10002); 
+        drawDAO.read(2); 
 	}
 
 
