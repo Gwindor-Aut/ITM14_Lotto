@@ -19,6 +19,7 @@ public class TestAccountingDAO {
 	private static Accounting accounting;
 	//private Accounting accounting;
 
+	@SuppressWarnings("deprecation")
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		accountingDAO = new AccountingDAO();
@@ -63,7 +64,6 @@ public class TestAccountingDAO {
 		Accounting accounting2 = accounting;
 		accounting2.balance += 1; 
 		accountingDAO.update(accounting2);
-        
         Accounting accountingout = accountingDAO.read(10000);
         assertEquals(accountingout.hashCode(), accounting2.hashCode()); 
         assertNotEquals(accountingout, accounting);
@@ -73,10 +73,13 @@ public class TestAccountingDAO {
 	public void testDelete() {
 		
 		accountingDAO.create(accounting);
-		accountingDAO.delete(accounting);
+		@SuppressWarnings("deprecation")
+		Accounting accounting2 = new Accounting(10002, 25.0, 5.0,"Test Account", (java.sql.Date) new Date(2016, 11, 03), 0);
+		accountingDAO.create(accounting2);
+		accountingDAO.delete(accounting2);
         
 		/* should throw an exception */
-        accountingDAO.read(10000); 
+        accountingDAO.read(10002); 
 	}
 
 }
