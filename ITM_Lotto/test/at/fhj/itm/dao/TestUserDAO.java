@@ -13,11 +13,9 @@ import org.junit.Test;
 import at.fhj.itm.model.User;
 
 public class TestUserDAO {
-	
 
 	private static UserDAO userDAO;
 	private static User user;
-
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -47,8 +45,8 @@ public class TestUserDAO {
 		
 		int id = userDAO.create(user);
          
-        User Userout = userDAO.read(id);
-        assertEquals(Userout.hashCode(), user.hashCode()); 
+        User userout = userDAO.read(id);
+        assertEquals(userout.hashCode(), user.hashCode()); 
 	}
 	
 	@Test
@@ -56,19 +54,19 @@ public class TestUserDAO {
 		
 		int id = userDAO.create(user);
          
-        User Userout = userDAO.read(id);
-        assertEquals(Userout.hashCode(), user.hashCode()); 
+        User userout = userDAO.read(id);
+        assertEquals(userout.hashCode(), user.hashCode()); 
 	}
 	
 	@Test
 	public void testUpdate() {
 		
 		int id = userDAO.create(user);
-		User User2 = user;
-		User2.password = "alligator";
-		userDAO.update(User2);
+		User user2 = user;
+		user2.password = "alligator";
+		userDAO.update(user2);
         User accountingout = userDAO.read(id);
-        assertEquals(accountingout.hashCode(), User2.hashCode()); 
+        assertEquals(accountingout.hashCode(), user2.hashCode()); 
         assertNotEquals(accountingout, user);
 	}
 	
@@ -83,6 +81,5 @@ public class TestUserDAO {
 		/* should throw an exception */
         userDAO.read(id2); 
 	}
-
 
 }
