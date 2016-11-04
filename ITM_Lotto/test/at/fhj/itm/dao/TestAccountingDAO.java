@@ -23,7 +23,7 @@ public class TestAccountingDAO {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		accountingDAO = new AccountingDAO();
-		accounting = new Accounting(10000, 25.0, 5.0,"Test Account", (java.sql.Date) new Date(2016, 11, 03), 0);
+		accounting = new Accounting(10000, 25.0, 5.0,"Test Account", new java.sql.Date(2016, 11, 04), 0);
 	}
 
 	@AfterClass
