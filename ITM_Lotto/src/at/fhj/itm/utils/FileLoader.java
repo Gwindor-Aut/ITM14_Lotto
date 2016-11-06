@@ -9,9 +9,8 @@ public class FileLoader {
 	
 	public String getFile(String fileName){
 		StringBuilder result = new StringBuilder();
-		ClassLoader classLoader = getClass().getClassLoader();
 		
-		File file = new File(classLoader.getResource("/" + fileName).getFile());
+		File file = new File(Thread.currentThread().getContextClassLoader().getResource("/" + fileName).getFile());
 		
 		try (Scanner scanner = new Scanner(file)){
 			while(scanner.hasNextLine()){
