@@ -9,12 +9,14 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Scanner;
 
+import javax.ws.rs.core.Context;
+
 public class FileLoader {
-	
-	
+
 	public String getFile(String fileName){
 		StringBuilder result = new StringBuilder("");
-		URL resource = Thread.currentThread().getContextClassLoader().getResource("/" + fileName);
+		
+		URL resource = Thread.currentThread().getContextClassLoader().getResource(fileName);
 		try (InputStream in = resource.openStream()){
 			InputStreamReader inReader = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(inReader);
