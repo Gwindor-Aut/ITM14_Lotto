@@ -13,9 +13,6 @@ public class FileLoader {
 		StringBuilder result = new StringBuilder("");
 		
 		URL resource = Thread.currentThread().getContextClassLoader().getResource(fileName);
-		URL resource2 = Thread.currentThread().getContextClassLoader().getResource("/main/resources");
-		System.out.println("DEBUG: URL: " + resource);
-		System.out.println("DEBUG: URL: " + resource2);
 		try (InputStream in = resource.openStream()){
 			InputStreamReader inReader = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(inReader);
@@ -26,18 +23,6 @@ public class FileLoader {
 		} catch (IOException e){
 			e.printStackTrace();
 		}
-		
-		//File file = new File(Thread.currentThread().getContextClassLoader().getResource("/" + fileName).getFile());
-//		try (Scanner scanner = new Scanner(file)){
-//			while(scanner.hasNextLine()){
-//				result.append(scanner.nextLine());
-//				
-//			}
-//			scanner.close();
-//			
-//		} catch(IOException e){
-//			e.printStackTrace();
-//		}
 		
 		return result.toString();
 	}

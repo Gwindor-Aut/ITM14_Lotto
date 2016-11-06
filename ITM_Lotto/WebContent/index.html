@@ -1,11 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online Lotto</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body>
-	<h1>INDEX</h1>
-	<a href="api/site/test.html">test.html</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./index.html">Online Lotto</a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Online Lotto</h1>
+                <h2>Ein Projekt von ITM14</h2>
+                <p class="lead"></p>
+                <ul class="list-unstyled">
+                    <li>Spiele Lotto 6 aus 45</li>
+                    <li>Gewinne 6er, 5er, 4rer und 3er</li>
+                    <li>Spiele Quicktipps oder mit den eigenen Zahlen</li>
+                </ul>
+                <br>
+                <p class="lead">Interessiert? <a href="" data-toggle="modal" data-target="#registerModal">Jetzt registrieren!</a><br>
+                Oh, Sie haben bereits einen Account?<br>
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">Einloggen</button>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Login</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-login well">
+						<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Nutzername">
+						<br>
+						<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="Passwort">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="./api/site/home.html" class="btn btn-primary btn-block">Login</a>
+					<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Abbrechen</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Registrierung</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-login well">
+						<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Nutzername">
+						<br>
+						<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="Passwort">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="./api/site/home.html" class="btn btn-primary btn-block">Registrieren</a>
+					<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Abbrechen</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 </body>
 </html>

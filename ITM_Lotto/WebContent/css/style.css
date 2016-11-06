@@ -1,0 +1,38 @@
+/*Login-Page-CSS*/
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+
+.form-login {
+    background-color: #EDEDED;
+    padding: 10px 20px;
+}
+
+#page-content-wrapper {
+	margin-top: 30px;
+	text-align: center;
+}
+
+#sidebar-wrapper {
+	margin-top: 20px;
+}
+
+#menu-toggle,
+#messages {
+	margin-top: 8px;
+	margin-right: 8px;
+}
+
+.lottoNumber {
+	width: 60px !important;
+}
+
+@media(max-width:768px) {
+	.navbar-header {
+		float: left;
+	}
+	.navbar-right {
+		float: right;
+		margin-top: 0px;
+	}
+}
+
+/*---------------------------------------------------*/

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online Lotto</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/ITM_Lotto-0.0.1-SNAPSHOT/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Bootstrap Select CSS -->
+	<link href="/ITM_Lotto-0.0.1-SNAPSHOT/css/bootstrap-select.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+    <link href="/ITM_Lotto-0.0.1-SNAPSHOT/css/simple-sidebar.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+    <link href="/ITM_Lotto-0.0.1-SNAPSHOT/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<div id="wrapper" class="toggled">
+
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+					<a class="navbar-brand" href="./home.html">Online Lotto</a>
+				</div>
+				<div class="nav navbar-right">
+					<a href="./profile.html" class="btn btn-success" id="messages">
+						<span class="glyphicon glyphicon-bell"></span>
+						<span class="badge">0</span>
+					</a>
+					<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+						<span class="glyphicon glyphicon-align-justify"></span>
+					</a>
+				</div>
+			</div>
+		</nav>
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+				<li>
+					<a href="./profile.html">$USERNAME</a>
+				</li>
+				<li>
+					<a href="./home.html">Home</a>
+				</li>
+				<li>
+					<a href="./account.html">Konto</a>
+				</li>
+				<li>
+					<a href="./playing.html">Lotto spielen</a>
+				</li>
+				<li>
+					<a href="./tips.html">Tipps</a>
+				</li>
+				<li>
+					<a href="/ITM_Lotto-0.0.1-SNAPSHOT/index.html">Ausloggen</a>
+				</li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Lotto spielen</h1>
+						<div class="row">
+							<div class="well col-md-4 col-md-offset-1">
+								<h3>Manuell</h3>
+								<form class="form-inline">
+									Zahlen nur von 1 bis 46 sind erlaubt.<br>
+									<br>
+									<div class="form-group">
+										<div class="input-group">
+											<input type="number" class="form-control lottoNumber" min="1" max="46" id="numberOne">
+											<input type="number" class="form-control lottoNumber" min="1" max="46" id="numberTwo">
+											<input type="number" class="form-control lottoNumber" min="1" max="46" id="numberThree">
+											<input type="number" class="form-control lottoNumber" min="1" max="46" id="numberFour">
+											<input type="number" class="form-control lottoNumber" min="1" max="46" id="numberFife">
+											<input type="number" class="form-control lottoNumber" min="1" max="46" id="numberSix">
+										</div>
+										<button id="plus" class="btn btn-primary">+</button>
+									</div>
+									<br>
+									<br>
+									Preis: <b> 0,00 €</b>
+									<br><br>
+									<button type="submit" class="btn btn-success btn-block">Erwerben</button>
+								</form>
+							</div>
+							<div class="well col-md-4 col-md-offset-1">
+								<h3>Auto</h3>
+								<form>
+									<select class="selectpicker show-menu-arrow" data-live-search="true" data-width="fit">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+										<option>11</option>
+										<option>12</option>
+									</select> Quicktipp/s
+									<br><br>
+									Preis: <b> 0,00 €</b>
+									<br><br>
+									<button type="submit" class="btn btn-success btn-block">Erwerben</button>
+								</form>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/ITM_Lotto-0.0.1-SNAPSHOT/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/ITM_Lotto-0.0.1-SNAPSHOT/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap Select JavaScript -->
+	<script src="/ITM_Lotto-0.0.1-SNAPSHOT/js/bootstrap-select.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	
+		$('.selectpicker').selectpicker();
+    </script>
+
+</body>
+</html>
