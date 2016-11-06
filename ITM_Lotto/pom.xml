@@ -70,4 +70,5 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<packaging>war</packaging>
 </project>
