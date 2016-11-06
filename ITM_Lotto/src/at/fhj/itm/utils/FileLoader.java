@@ -6,13 +6,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+
 public class FileLoader {
 
 	public String getFile(String fileName){
 		StringBuilder result = new StringBuilder("");
 		
 		URL resource = Thread.currentThread().getContextClassLoader().getResource("/resources/" + fileName);
-		URL resource2 = Thread.currentThread().getContextClassLoader().getResource("/");
+		URL resource2 = Thread.currentThread().getContextClassLoader().getResource("/resources");
 		System.out.println("DEBUG: URL: " + resource);
 		System.out.println("DEBUG: URL: " + resource2);
 		try (InputStream in = resource.openStream()){
