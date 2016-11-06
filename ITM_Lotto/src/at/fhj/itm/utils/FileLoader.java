@@ -12,8 +12,8 @@ public class FileLoader {
 	public String getFile(String fileName){
 		StringBuilder result = new StringBuilder("");
 		
-		URL resource = Thread.currentThread().getContextClassLoader().getResource("/resources/" + fileName);
-		URL resource2 = Thread.currentThread().getContextClassLoader().getResource("/resources");
+		URL resource = Thread.currentThread().getContextClassLoader().getResource("/main/resources/" + fileName);
+		URL resource2 = Thread.currentThread().getContextClassLoader().getResource("/main/resources");
 		System.out.println("DEBUG: URL: " + resource);
 		System.out.println("DEBUG: URL: " + resource2);
 		try (InputStream in = resource.openStream()){
