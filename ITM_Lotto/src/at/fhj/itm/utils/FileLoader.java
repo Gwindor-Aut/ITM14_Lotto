@@ -17,6 +17,7 @@ public class FileLoader {
 		StringBuilder result = new StringBuilder("");
 		
 		URL resource = Thread.currentThread().getContextClassLoader().getResource(fileName);
+		System.out.println("DEBUG: URL: " + resource);
 		try (InputStream in = resource.openStream()){
 			InputStreamReader inReader = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(inReader);
