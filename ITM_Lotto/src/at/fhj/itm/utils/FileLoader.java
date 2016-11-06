@@ -1,22 +1,17 @@
 package at.fhj.itm.utils;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Scanner;
-
-import javax.ws.rs.core.Context;
 
 public class FileLoader {
 
 	public String getFile(String fileName){
 		StringBuilder result = new StringBuilder("");
 		
-		URL resource = Thread.currentThread().getContextClassLoader().getResource(fileName);
+		URL resource = Thread.currentThread().getContextClassLoader().getResource("/resources/" + fileName);
 		URL resource2 = Thread.currentThread().getContextClassLoader().getResource("/");
 		System.out.println("DEBUG: URL: " + resource);
 		System.out.println("DEBUG: URL: " + resource2);
