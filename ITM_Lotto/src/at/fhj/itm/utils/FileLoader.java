@@ -12,7 +12,7 @@ public class FileLoader {
 	public String getFile(String fileName){
 		StringBuilder result = new StringBuilder("");
 		
-		URL resource = Thread.currentThread().getContextClassLoader().getResource("/main/resources/" + fileName);
+		URL resource = Thread.currentThread().getContextClassLoader().getResource(fileName);
 		URL resource2 = Thread.currentThread().getContextClassLoader().getResource("/main/resources");
 		System.out.println("DEBUG: URL: " + resource);
 		System.out.println("DEBUG: URL: " + resource2);
