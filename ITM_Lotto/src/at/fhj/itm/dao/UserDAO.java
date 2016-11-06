@@ -94,5 +94,34 @@ public class UserDAO extends GenericSqlDAO<User, Integer>{
 			System.err.println("Driver cannot be deleted");
 		}
 	}
+	
+	public User readByUsername(String username) {
+		PreparedStatement stmt;
+		User u = new User();
+		
+		u.id = -1;
+		u.username = "undefined";
+		u.password = "undefined";
+		
+		try {
+			stmt = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+			stmt.setString(1, username);
+			ResultSet rs = stmt.executeQuery();
+			rs.first();
+			
+			//Mapping
+			u.id = rs.getInt("Id");
+			u.username = rs.getString("username");
+			u.password = rs.getString("password");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.err.println("Cannot read User with username " + username);
+		}
+		
+		return u;
+	}
+	
+
 
 }

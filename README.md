@@ -41,3 +41,18 @@ ITM14 Lotto P.SWEngi
 - If you already have an existing server, use that one, otherwise select "Manually define a new server" and select the appropriate wildfly version and the path to your wildlfy installation in the wizard
 - Test by entering http://localhost:8080/ITM_Lotto-0.0.1-SNAPSHOT or http://localhost:8080/ITM_Lotto-0.0.1-SNAPSHOT/test.html  in your browser
 - Test DB-Connection by entering http://localhost:8080/ITM_Lotto-0.0.1-SNAPSHOT/api/draws/id/1 in your browser. 
+
+
+#### Add.Info
+- 'WebContent/*' <- everyone can access this folder
+- A link to a static file in the WebContent-Folder has to start with "/ITM_Lotto-0.0.1-SNAPSHOT/" e.g "/ITM_Lotto-0.0.1-SNAPSHOT/index.html"
+- 'src/main/resources/*' <- only logged-in users can access these files (auth not implemented yet)
+- files from 'src/main/resources/' get served via '/ITM_Lotto-0.0.1-SNAPSHOT/api/site/*'
+- Links from one file to another file inside 'src/main/resources' can use './*' instead of '/ITM_Lotto-0.0.1-SNAPSHOT/api/site/*'
+
+
+#### ToDo
+- define routes + CRUD
+- implement auth
+- javascript
+- documentation ...
