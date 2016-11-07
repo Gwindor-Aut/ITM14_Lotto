@@ -1,5 +1,9 @@
 package at.fhj.itm.routes;
 
+import java.sql.Date;
+import java.util.Calendar;
+
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -28,8 +32,32 @@ public class TippService {
 	
 	@POST
 	@Path("/new")
-	public void createNewTipp(String tipp){
-		System.out.println("Test::createNewTipp " + tipp);
+	public void createNewTipp(@FormParam("isQuicktipp") boolean isQuicktipp,
+			@FormParam("userId") int userId, @FormParam("drawId") int drawId,
+			@FormParam("numberOne") int numberOne,
+			@FormParam("numberTwo") int numberTwo,
+			@FormParam("numberThree") int numberThree,
+			@FormParam("numberFour") int numberFour,
+			@FormParam("numberFive") int numberFive,
+			@FormParam("numberSix") int numberSix){
+		
+		System.out.println("Test::createNewTipp");
+		
+		Date date = new Date(Calendar.getInstance().getTimeInMillis());
+		
+		String tipps = numberOne + ";" + numberTwo + ";" + numberThree + ";" + 
+				numberFour + ";" + numberFive + ";" + numberSix;
+		
+		Tipp tipp = new Tipp(0, tipps, isQuicktipp, date, userId, drawId);
+		
+		System.out.println(tipp);
+		
+		try {
+			int tippId = tdao.create(tipp);
+			System.out.println("Tipp ID: " + tippId);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
