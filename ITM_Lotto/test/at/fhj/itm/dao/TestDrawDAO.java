@@ -44,29 +44,29 @@ public class TestDrawDAO {
 	@Test
 	public void testCreate() {
 		
-		int id = drawDAO.create(draw);
+		draw.id = drawDAO.create(draw);
          
-        Draw drawout = drawDAO.read(id);
+        Draw drawout = drawDAO.read(draw.id);
         assertEquals(drawout.hashCode(), draw.hashCode()); 
 	}
 	
 	@Test
 	public void testRead() {
 		
-		int id = drawDAO.create(draw);
+		draw.id = drawDAO.create(draw);
          
-		Draw drawout = drawDAO.read(id);
+		Draw drawout = drawDAO.read(draw.id);
         assertEquals(drawout.hashCode(), draw.hashCode()); 
 	}
 	
 	@Test
 	public void testUpdate() {
 		
-		int id = drawDAO.create(draw);
+		draw.id = drawDAO.create(draw);
 		Draw draw2 = draw;
 		draw2.jackpotLevel += 1; 
 		drawDAO.update(draw2);
-        Draw accountingout = drawDAO.read(id);
+        Draw accountingout = drawDAO.read(draw.id);
         assertEquals(accountingout.hashCode(), draw2.hashCode()); 
         assertNotEquals(accountingout, draw);
 	}
@@ -77,11 +77,11 @@ public class TestDrawDAO {
 		drawDAO.create(draw);
 		@SuppressWarnings("deprecation")
 		Draw drawdel = new Draw(10002, 25000, "1,2,3,4,5,6", new java.sql.Date(2016, 11, 14), 0, 350, 30, 15, 0); 
-		int id2 = drawDAO.create(drawdel);
+		drawdel.id = drawDAO.create(drawdel);
 		drawDAO.delete(drawdel);
         
 		/* should throw an exception */
-        drawDAO.read(id2); 
+        drawDAO.read(drawdel.id); 
 	}
 
 

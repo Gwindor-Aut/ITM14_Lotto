@@ -42,29 +42,29 @@ public class TestAccountingDAO {
 	@Test
 	public void testCreate() {
 		
-		int id = accountingDAO.create(accounting);
+		accounting.id = accountingDAO.create(accounting);
          
-        Accounting accountingout = accountingDAO.read(id);
+        Accounting accountingout = accountingDAO.read(accounting.id);
         assertEquals(accountingout.hashCode(), accounting.hashCode()); 
 	}
 	
 	@Test
 	public void testRead() {
 		
-		int id = accountingDAO.create(accounting);
+		accounting.id = accountingDAO.create(accounting);
          
-        Accounting accountingout = accountingDAO.read(id);
+        Accounting accountingout = accountingDAO.read(accounting.id);
         assertEquals(accountingout.hashCode(), accounting.hashCode()); 
 	}
 	
 	@Test
 	public void testUpdate() {
 		
-		int id = accountingDAO.create(accounting);
+		accounting.id = accountingDAO.create(accounting);
 		Accounting accounting2 = accounting;
 		accounting2.balance += 1; 
 		accountingDAO.update(accounting2);
-        Accounting accountingout = accountingDAO.read(id);
+        Accounting accountingout = accountingDAO.read(accounting.id);
         assertEquals(accountingout.hashCode(), accounting2.hashCode()); 
         assertNotEquals(accountingout, accounting);
 	}
@@ -72,14 +72,14 @@ public class TestAccountingDAO {
 	@Test(expected=SQLException.class)
 	public void testDelete() {
 		
-		accountingDAO.create(accounting);
+		accounting.id = accountingDAO.create(accounting);
 		@SuppressWarnings("deprecation")
 		Accounting accounting2 = new Accounting(10002, 25.0, 5.0,"Test Account", (java.sql.Date) new Date(2016, 11, 03), 0);
-		int id = accountingDAO.create(accounting2);
+		accounting2.id = accountingDAO.create(accounting2);
 		accountingDAO.delete(accounting2);
         
 		/* should throw an exception */
-        accountingDAO.read(id); 
+        accountingDAO.read(accounting2.id); 
 	}
 
 }

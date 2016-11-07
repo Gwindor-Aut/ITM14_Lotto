@@ -45,29 +45,29 @@ public class TestWinningLevelDAO {
 	@Test
 	public void testCreate() {
 		
-		int id = winningLevelDAO.create(winningLevel);
+		winningLevel.id = winningLevelDAO.create(winningLevel);
          
-        WinningLevel winningLevelout = winningLevelDAO.read(id);
+        WinningLevel winningLevelout = winningLevelDAO.read(winningLevel.id);
         assertEquals(winningLevelout.hashCode(), winningLevel.hashCode()); 
 	}
 	
 	@Test
 	public void testRead() {
 		
-		int id = winningLevelDAO.create(winningLevel);
+		winningLevel.id = winningLevelDAO.create(winningLevel);
          
-        WinningLevel winningLevelout = winningLevelDAO.read(id);
+        WinningLevel winningLevelout = winningLevelDAO.read(winningLevel.id);
         assertEquals(winningLevelout.hashCode(), winningLevel.hashCode()); 
 	}
 	
 	@Test
 	public void testUpdate() {
 		
-		int id = winningLevelDAO.create(winningLevel);
+		winningLevel.id = winningLevelDAO.create(winningLevel);
 		WinningLevel winningLevel2 = winningLevel;
 		winningLevel2.five = 5;
 		winningLevelDAO.update(winningLevel2);
-        WinningLevel accountingout = winningLevelDAO.read(id);
+        WinningLevel accountingout = winningLevelDAO.read(winningLevel.id);
         assertEquals(accountingout.hashCode(), winningLevel2.hashCode()); 
         assertNotEquals(accountingout, winningLevel);
 	}
@@ -75,13 +75,13 @@ public class TestWinningLevelDAO {
 	@Test(expected=SQLException.class)
 	public void testDelete() {
 		
-		winningLevelDAO.create(winningLevel);
+		winningLevel.id = winningLevelDAO.create(winningLevel);
 		@SuppressWarnings("deprecation")
 		WinningLevel winningLeveldeldel = new WinningLevel(1000, new Date(2016, 11, 04),1,10,25,300);
-		int id2 = winningLevelDAO.create(winningLeveldeldel);
+		winningLeveldeldel.id = winningLevelDAO.create(winningLeveldeldel);
 		winningLevelDAO.delete(winningLeveldeldel);
         
 		/* should throw an exception */
-        winningLevelDAO.read(id2); 
+        winningLevelDAO.read(winningLeveldeldel.id); 
 	}
 }

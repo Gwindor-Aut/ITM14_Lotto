@@ -46,29 +46,29 @@ public class TestTippDAO {
 	@Test
 	public void testCreate() {
 		
-		int id = tippDAO.create(tipp);
+		tipp.id = tippDAO.create(tipp);
          
-        Tipp tippout = tippDAO.read(id);
+        Tipp tippout = tippDAO.read(tipp.id);
         assertEquals(tippout.hashCode(), tipp.hashCode()); 
 	}
 	
 	@Test
 	public void testRead() {
 		
-		int id = tippDAO.create(tipp);
+		tipp.id = tippDAO.create(tipp);
          
-        Tipp tippout = tippDAO.read(id);
+        Tipp tippout = tippDAO.read(tipp.id);
         assertEquals(tippout.hashCode(), tipp.hashCode()); 
 	}
 	
 	@Test
 	public void testUpdate() {
 		
-		int id = tippDAO.create(tipp);
+		tipp.id = tippDAO.create(tipp);
 		Tipp tipp2 = tipp;
 		tipp2.isQuicktipp = true;
 		tippDAO.update(tipp2);
-        Tipp accountingout = tippDAO.read(id);
+        Tipp accountingout = tippDAO.read(tipp.id);
         assertEquals(accountingout.hashCode(), tipp2.hashCode()); 
         assertNotEquals(accountingout, tipp);
 	}
@@ -76,14 +76,14 @@ public class TestTippDAO {
 	@Test(expected=SQLException.class)
 	public void testDelete() {
 		
-		tippDAO.create(tipp);
+		tipp.id = tippDAO.create(tipp);
 		@SuppressWarnings("deprecation")
 		Tipp tippdel = new Tipp(1000, "1,2,3,4,5,6", false, new Date(2016, 11, 04), 0, 0); 
-		int id2 = tippDAO.create(tippdel);
+		tippdel.id = tippDAO.create(tippdel);
 		tippDAO.delete(tippdel);
         
 		/* should throw an exception */
-        tippDAO.read(id2); 
+        tippDAO.read(tippdel.id); 
 	}
 
 }

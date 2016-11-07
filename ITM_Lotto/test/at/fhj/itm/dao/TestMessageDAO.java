@@ -45,29 +45,29 @@ public class TestMessageDAO {
 	@Test
 	public void testCreate() {
 		
-		int id = messageDAO.create(message);
+		message.id = messageDAO.create(message);
          
-        Message messageout = messageDAO.read(id);
+        Message messageout = messageDAO.read(message.id);
         assertEquals(messageout.hashCode(), message.hashCode()); 
 	}
 	
 	@Test
 	public void testRead() {
 		
-		int id = messageDAO.create(message);
+		message.id = messageDAO.create(message);
          
-		Message messageout = messageDAO.read(id);
+		Message messageout = messageDAO.read(message.id);
         assertEquals(messageout.hashCode(), message.hashCode());
 	}
 	
 	@Test
 	public void testUpdate() {
 		
-		int id = messageDAO.create(message);
+		message.id = messageDAO.create(message);
 		Message message2 = message;
 		message2.isRead= true;
 		messageDAO.update(message2);
-        Message messageout = messageDAO.read(id);
+        Message messageout = messageDAO.read(message.id);
         assertEquals(messageout.hashCode(), message2.hashCode()); 
         assertNotEquals(messageout, message);
 	}
@@ -78,11 +78,11 @@ public class TestMessageDAO {
 		messageDAO.create(message);
 		@SuppressWarnings("deprecation")
 		Message messagedel = new Message(1000, "Hallo :)", false, new Date(2016, 11, 04), 0);
-		int id2 = messageDAO.create(messagedel);
+		messagedel.id = messageDAO.create(messagedel);
 		messageDAO.delete(messagedel);
         
 		/* should throw an exception */
-		messageDAO.read(id2); 
+		messageDAO.read(messagedel.id); 
 	}
 
 }

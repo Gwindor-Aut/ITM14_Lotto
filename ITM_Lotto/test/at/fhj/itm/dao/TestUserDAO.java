@@ -43,29 +43,29 @@ public class TestUserDAO {
 	@Test
 	public void testCreate() {
 		
-		int id = userDAO.create(user);
+		user.id = userDAO.create(user);
          
-        User userout = userDAO.read(id);
+        User userout = userDAO.read(user.id);
         assertEquals(userout.hashCode(), user.hashCode()); 
 	}
 	
 	@Test
 	public void testRead() {
 		
-		int id = userDAO.create(user);
+		user.id = userDAO.create(user);
          
-        User userout = userDAO.read(id);
+        User userout = userDAO.read(user.id);
         assertEquals(userout.hashCode(), user.hashCode()); 
 	}
 	
 	@Test
 	public void testUpdate() {
 		
-		int id = userDAO.create(user);
+		user.id = userDAO.create(user);
 		User user2 = user;
 		user2.password = "alligator";
 		userDAO.update(user2);
-        User accountingout = userDAO.read(id);
+        User accountingout = userDAO.read(user.id);
         assertEquals(accountingout.hashCode(), user2.hashCode()); 
         assertNotEquals(accountingout, user);
 	}
@@ -73,13 +73,12 @@ public class TestUserDAO {
 	@Test(expected=SQLException.class)
 	public void testDelete() {
 		
-		userDAO.create(user);
-		User Userdel = new User(1000, "XYZ", "Tschau"); 
-		int id2 = userDAO.create(Userdel);
-		userDAO.delete(Userdel);
+		User userdel = new User(1000, "XYZ", "Tschau"); 
+		userdel.id = userDAO.create(userdel);
+		userDAO.delete(userdel);
         
 		/* should throw an exception */
-        userDAO.read(id2); 
+        userDAO.read(userdel.id); 
 	}
 
 }
