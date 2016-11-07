@@ -56,7 +56,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
 				<li>
-					<a href="./profile.html">$USERNAME</a>
+					<a href="./profile.html" id="username">$USERNAME</a>
 				</li>
 				<li>
 					<a href="./home.html">Home</a>
@@ -168,6 +168,10 @@
 		});
 	
 		$('.selectpicker').selectpicker();
+	    
+	    	$.getJSON("/api/user/id/"+id, function(jd){
+	        	$('#username').html(jd.user.username);
+	    	});
     </script>
 
 </body>
