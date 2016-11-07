@@ -1,5 +1,6 @@
 package at.fhj.itm.routes;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -28,8 +29,32 @@ public class UserService {
 	
 	@POST
 	@Path("/new")
-	public void createNewUser(String user){
-		System.out.println("Test::createUser " + user);
+	public void createNewUser(@FormParam("username") String username, @FormParam("password") String password){
+		System.out.println("Test::createUser with un: " + username + " and pw: " + password);
+		
+		User user = new User(0, username, password);
+		System.out.println(user);
+		
+		try {
+			int userId = udao.create(user);
+			System.out.println("UserId: " + userId);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@POST
+	@Path("/login")
+	public void login(@FormParam("username") String username, @FormParam("password") String password){
+		
+		System.out.println("Login");
+		
+		try{
+			System.out.println("Username: " + username);
+			System.out.println("Password: " + password);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 }

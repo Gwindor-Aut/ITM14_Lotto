@@ -79,17 +79,23 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Login</h4>
 				</div>
+			<form method="POST" action="api/user/login" class="form-signin">
+				
+				<input id="requestURI" type="hidden" value="/" name="requestURI"/>
+				
 				<div class="modal-body">
 					<div class="form-login well">
-						<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Nutzername">
+						<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Nutzername" name="username" required="required">
 						<br>
-						<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="Passwort">
+						<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="Passwort" name="password" required="required">
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a href="./api/site/home.html" class="btn btn-primary btn-block">Login</a>
+					<button type="submit" class="btn btn-primary btn-block">Login</button>
 					<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Abbrechen</button>
 				</div>
+
+			</form>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
@@ -101,17 +107,22 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Registrierung</h4>
 				</div>
+			<form method="POST" action="api/user/new" class="form-signin">
+				
+				<input id="requestURI" type="hidden" value="/" name="requestURI"/>
 				<div class="modal-body">
 					<div class="form-login well">
-						<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Nutzername">
+						<input type="text" id="userName" name="username" class="form-control input-sm chat-input" placeholder="Nutzername" required="required">
 						<br>
-						<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="Passwort">
+						<input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="Passwort" required="required">
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a href="./api/site/home.html" class="btn btn-primary btn-block">Registrieren</a>
+					<button type="submit" class="btn btn-primary btn-block">Registrieren</button>
 					<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Abbrechen</button>
 				</div>
+				
+			</form>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
