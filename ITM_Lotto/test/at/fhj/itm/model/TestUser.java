@@ -49,5 +49,4 @@ public class TestUser {
 		u1.id = userDAO.create(u1);
 		
 	}
-
 }

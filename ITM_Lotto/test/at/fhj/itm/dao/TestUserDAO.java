@@ -59,6 +59,14 @@ public class TestUserDAO {
 	}
 	
 	@Test
+	public void testReadByUsername() {
+		user.id = userDAO.create(user);
+		
+		assertEquals(user.hashCode(), userDAO.readByUsername(user.username).hashCode());
+		
+	}
+	
+	@Test
 	public void testUpdate() {
 		
 		user.id = userDAO.create(user);
