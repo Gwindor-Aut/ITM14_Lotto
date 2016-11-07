@@ -50,10 +50,6 @@
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.junit</groupId>
-			<artifactId>junit4-engine</artifactId>
-		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -71,11 +67,6 @@
 				<groupId>org.mariadb.jdbc</groupId>
 				<artifactId>mariadb-java-client</artifactId>
 				<version>1.5.4</version>
-			</dependency>
-			<dependency>
-				<groupId>org.junit</groupId>
-				<artifactId>junit4-engine</artifactId>
-				<version>5.0.0-ALPHA</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
