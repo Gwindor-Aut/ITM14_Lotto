@@ -32,7 +32,7 @@ public class TippService {
 	}
 	
 	@POST
-	@Path("/new")
+	@Path("/newManual")
 	public void createNewManualTipp(@FormParam("userId") int userId, @FormParam("drawId") int drawId,
 			@FormParam("numberOne") int numberOne,
 			@FormParam("numberTwo") int numberTwo,
@@ -61,7 +61,7 @@ public class TippService {
 	}
 	
 	@POST
-	@Path("/new")
+	@Path("/newQuick")
 	public void createNewQuickTipp(@FormParam("userId") int userId,
 			@FormParam("drawId") int drawId,
 			@FormParam("quicktipps") int quicktipps){
