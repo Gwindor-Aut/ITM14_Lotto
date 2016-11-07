@@ -24,7 +24,12 @@ public class UserService {
 	@Path("/id/{id}")
 	public String getUserById(@PathParam("id") Integer id){
 		User u = udao.read(id);
-		return u.toString();
+		String resp = "{\"user\": {"
+				+ "\"id\":" + u.id + ","
+				+ "\"username\": \"" + u.username + "\","
+				+ "\"password\": \"" + u.password
+				+ "\"}}";
+		return resp;
 	}
 	
 	@POST

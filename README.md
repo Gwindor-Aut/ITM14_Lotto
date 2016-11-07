@@ -30,7 +30,7 @@ ITM14 Lotto P.SWEngi
 #### MariaDB
 - Download and install MariaDB
 - Connect to MariaDB
-- Create database and tables using the script create-tables.db: 
+- Create database and tables using the script createTables.sql: 
 	- \\. _path-to-script_
 
 #### And finally ... the Lotto Project itself
