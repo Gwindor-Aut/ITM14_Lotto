@@ -29,8 +29,18 @@ public class UserService {
 	
 	@POST
 	@Path("/new")
-	public void createNewUser(String user){
-		System.out.println("Test::createUser " + user);
+	public void createNewUser(@FormParam("username") String username, @FormParam("password") String password){
+		System.out.println("Test::createUser with un: " + username + " and pw: " + password);
+		
+		User user = new User(0, username, password);
+		System.out.println(user);
+		
+		try {
+			int userId = udao.create(user);
+			System.out.println("UserId: " + userId);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@POST
@@ -45,7 +55,6 @@ public class UserService {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	
 	}
 
 }
